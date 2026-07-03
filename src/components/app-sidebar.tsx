@@ -8,7 +8,7 @@ const navItems = [
 
 export function AppSidebar() {
   return (
-    <aside className="hidden w-56 shrink-0 border-r border-black/[.08] p-4 dark:border-white/[.145] md:block">
+    <aside className="hidden w-56 shrink-0 border-r border-black/8 p-4 dark:border-white/[.145] md:block">
       <nav className="flex flex-col gap-1">
         <span className="mb-2 px-3 text-xs font-semibold tracking-wide text-zinc-400 uppercase">
           业务功能

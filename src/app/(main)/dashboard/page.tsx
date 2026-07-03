@@ -18,7 +18,7 @@ export default function DashboardPage() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-xl border border-black/[.08] bg-white p-5 shadow-sm dark:border-white/[.145] dark:bg-zinc-950"
+            className="rounded-xl border border-black/8 bg-white p-5 shadow-sm dark:border-white/[.145] dark:bg-zinc-950"
           >
             <span className="text-sm text-zinc-500 dark:text-zinc-400">{stat.label}</span>
             <div className="mt-2 flex items-baseline gap-2">

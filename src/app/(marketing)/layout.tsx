@@ -6,7 +6,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
     <>
       <SiteHeader />
       <div className="flex flex-1 flex-col">{children}</div>
-      <footer className="border-t border-black/[.08] py-6 text-center text-xs text-zinc-500 dark:border-white/[.145] dark:text-zinc-400">
+      <footer className="border-t border-black/8 py-6 text-center text-xs text-zinc-500 dark:border-white/[.145] dark:text-zinc-400">
         NextPage Demo · 部署于 Cloudflare
       </footer>
     </>

@@ -17,7 +17,7 @@ export default function HomePage() {
           </h1>
         </header>
 
-        <section className="flex w-full flex-col items-center gap-6 rounded-2xl border border-black/[.08] bg-white p-8 shadow-sm dark:border-white/[.145] dark:bg-zinc-950">
+        <section className="flex w-full flex-col items-center gap-6 rounded-2xl border border-black/8 bg-white p-8 shadow-sm dark:border-white/[.145] dark:bg-zinc-950">
           <span className="text-sm font-medium tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
             Zustand Counter
           </span>
@@ -36,7 +36,7 @@ export default function HomePage() {
             <button
               type="button"
               onClick={reset}
-              className="h-11 rounded-full border border-black/[.08] px-4 text-sm font-medium text-black transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:text-zinc-50 dark:hover:bg-zinc-800"
+              className="h-11 rounded-full border border-black/8 px-4 text-sm font-medium text-black transition-colors hover:bg-black/4 dark:border-white/[.145] dark:text-zinc-50 dark:hover:bg-zinc-800"
             >
               Reset
             </button>

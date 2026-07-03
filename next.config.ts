@@ -1,10 +1,12 @@
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 import type { NextConfig } from "next";
 
-if (process.env.NODE_ENV === "development") {
-  initOpenNextCloudflareForDev();
-}
-
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  // 静态导出，适配 Cloudflare Pages 部署
+  output: "export",
+  images: {
+    // 静态导出不支持 Next.js 图片优化
+    unoptimized: true,
+  },
+};
 
 export default nextConfig;

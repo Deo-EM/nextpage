@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "biomejs.biome",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "ms-playwright.playwright",
+    "ms-vscode.js-debug",
+    "ms-vscode.vscode-typescript-next"
+  ]
+}

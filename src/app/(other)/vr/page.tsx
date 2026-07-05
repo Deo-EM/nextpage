@@ -61,26 +61,66 @@ export default function VRPage() {
         renderScale: 2,
       });
       playerRef.current = player;
-      await player.load(SRC);
-      if (destroyed) return;
       const video = player.video;
 
-      // 仅用这些事件来控制播放状态，不再用 timeupdate 驱动 UI
-      video.addEventListener("loadedmetadata", () => setDuration(video.duration || 0));
+      // ★ 关键修复：在 load() 之前注册所有事件监听，避免错过 loadedmetadata
+      const onMetadata = () => {
+        if (!destroyed && Number.isFinite(video.duration)) {
+          setDuration(video.duration);
+        }
+      };
+      video.addEventListener("loadedmetadata", onMetadata);
+
+      // duration 也可能通过 durationchange 更新（渐进式加载 / 非 fast-start MP4）
+      video.addEventListener("durationchange", () => {
+        if (!destroyed && Number.isFinite(video.duration)) {
+          setDuration(video.duration);
+        }
+      });
+
       video.addEventListener("play", () => {
+        if (destroyed) return;
         setIsPlaying(true);
         rafRef.current = requestAnimationFrame(updateTime);
       });
       video.addEventListener("pause", () => {
+        if (destroyed) return;
         setIsPlaying(false);
         cancelAnimationFrame(rafRef.current);
       });
       video.addEventListener("ended", () => {
+        if (destroyed) return;
         setIsPlaying(false);
         cancelAnimationFrame(rafRef.current);
       });
 
-      setDuration(video.duration || 0);
+      try {
+        await player.load(SRC);
+      } catch (err) {
+        if (destroyed) return;
+        console.error("[VRPlayer] load error:", err);
+        return;
+      }
+
+      if (destroyed) return;
+
+      // 用 Number.isFinite 正确检查，避免 NaN || 0 = 0 的陷阱
+      if (Number.isFinite(video.duration)) {
+        setDuration(video.duration);
+      }
+
+      // duration 轮询兜底：处理 moov atom 在文件末尾的情况
+      const pollDuration = () => {
+        if (destroyed || !playerRef.current) return;
+        const v = playerRef.current.video;
+        if (Number.isFinite(v.duration) && v.duration > 0) {
+          setDuration(v.duration);
+          return;
+        }
+        requestAnimationFrame(pollDuration);
+      };
+      requestAnimationFrame(pollDuration);
+
       player.play().catch(() => {});
     })();
 

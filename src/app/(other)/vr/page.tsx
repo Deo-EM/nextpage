@@ -127,23 +127,44 @@ export default function VRPage() {
 
       {/* 顶部标识 */}
       <div className="pointer-events-none absolute top-4 left-4 sm:top-6 sm:left-6">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-xs font-medium tracking-wide text-white/80 backdrop-blur-md sm:text-sm">
+        <span
+          className={`
+            inline-flex items-center gap-1.5 rounded-full border
+            border-white/15 bg-black/30 px-3 py-1 text-xs font-medium
+            tracking-wide text-white/80 backdrop-blur-md sm:text-sm
+          `}
+        >
           <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
           360° VR Player
         </span>
       </div>
 
       {/* 底部可读性渐变 */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
+      <div
+        className={`
+          pointer-events-none absolute inset-x-0 bottom-0 h-2/5
+          bg-linear-to-t from-black/80 via-black/30 to-transparent
+        `}
+      />
 
       {/* 控件条 */}
       <div className="absolute inset-x-0 bottom-0 px-3 pb-3 sm:px-5 sm:pb-5">
-        <div className="pointer-events-auto mx-auto flex max-w-5xl items-center gap-3 rounded-2xl border border-white/20 bg-black/60 px-3 py-2.5 backdrop-blur-md sm:gap-4 sm:px-4 sm:py-3">
+        <div
+          className={`
+            pointer-events-auto mx-auto flex max-w-5xl items-center gap-3
+            rounded-2xl border border-white/20 bg-black/60 px-3 py-2.5
+            backdrop-blur-md sm:gap-4 sm:px-4 sm:py-3
+          `}
+        >
           <button
             type="button"
             onClick={togglePlay}
             aria-label={isPlaying ? "暂停" : "播放"}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform hover:scale-105 active:scale-95 sm:h-11 sm:w-11"
+            className={`
+              flex h-10 w-10 shrink-0 items-center justify-center
+              rounded-full bg-white text-black transition-transform
+              hover:scale-105 active:scale-95 sm:h-11 sm:w-11
+            `}
           >
             {isPlaying ? <PauseIcon /> : <PlayIcon />}
           </button>

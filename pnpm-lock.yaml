@@ -17,6 +17,9 @@ importers:
       react-dom:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
+      vr-player:
+        specifier: ^0.1.10
+        version: 0.1.10
       zustand:
         specifier: ^5.0.14
         version: 5.0.14(@types/react@19.2.17)(react@19.2.4)
@@ -2230,6 +2233,9 @@ packages:
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+
+  vr-player@0.1.10:
+    resolution: {integrity: sha512-ncVZu0b9HVpFBvywO9AfuaDSZY2jR+480ImDLpUBM3vyZcVpgVuAGCtNCzWyrL8XIF0gEvFxxAO2roRrSG4gXw==}
 
   web-streams-polyfill@4.0.0-beta.3:
     resolution: {integrity: sha512-QW95TCTaHmsYfHDybGMwO5IJIM93I/6vTRk+daHTWFPhwh+C8Cg7j7XyKrwrj8Ib6vYXe0ocYNrmzY4xAAN6ug==}
@@ -4612,6 +4618,8 @@ snapshots:
   urlpattern-polyfill@10.1.0: {}
 
   vary@1.1.2: {}
+
+  vr-player@0.1.10: {}
 
   web-streams-polyfill@4.0.0-beta.3: {}
 

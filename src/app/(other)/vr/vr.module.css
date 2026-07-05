@@ -1,0 +1,86 @@
+/* ===== Range Input (CSS Module) ===== */
+/* 覆盖浏览器默认 range 样式，支持 WebKit + Firefox */
+
+.rangeInput {
+  height: 8px;
+  cursor: pointer;
+  touch-action: none;
+  appearance: none;
+  border-radius: 9999px;
+  outline: none;
+  vertical-align: middle;
+}
+
+@media (min-width: 640px) {
+  .rangeInput {
+    height: 10px;
+  }
+}
+
+/* --- Track: WebKit (Chrome/Safari/Edge) --- */
+.rangeInput::-webkit-slider-runnable-track {
+  height: 100%;
+  border-radius: 9999px;
+  background: transparent;
+}
+
+/* --- Thumb: WebKit --- */
+.rangeInput::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #3b82f6;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 40%);
+  cursor: pointer;
+  margin-top: -4px;
+  transition: transform 0.1s;
+}
+.rangeInput:active::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+
+@media (min-width: 640px) {
+  .rangeInput::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    margin-top: -5px;
+  }
+}
+
+/* --- Track: Firefox --- */
+.rangeInput::-moz-range-track {
+  height: 100%;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 30%);
+}
+
+.rangeInput::-moz-range-progress {
+  height: 100%;
+  border-radius: 9999px;
+  background: #3b82f6;
+}
+
+/* --- Thumb: Firefox --- */
+.rangeInput::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #3b82f6;
+  background: #fff;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .rangeInput::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* --- Disabled state --- */
+.rangeInput:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
